@@ -26,7 +26,7 @@ class Character :
         self.name = ""
         self.race = ""
         self.background = ""
-        self.charClass = ""
+        self.charClass = []
         self.Attributes = [0,0,0,0,0,0]
         self.hitDice = ""
         self.currentHP = 0
@@ -66,12 +66,13 @@ class Character :
 
         while userInt == 0:
             userInt = RangeIntCheck(input(), 1, len(Classes))
-        self.charClass = Classes[userInt - 1]
+        self.charClass.append([Classes[userInt - 1]] + [1])
+        
 
 a1 = Character()
 a1.getName()
 a1.getRace()
 a1.getClass()
 
-print(a1.name + a1.charClass + a1.race)
+print(f' character name is {a1.name}. Character race is {a1.race}. Character class is {a1.charClass[0][0]} at level {a1.charClass[0][1]}.')
 
